@@ -1,11 +1,13 @@
 package umc.study.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import umc.study.domain.common.BaseEntity;
+import umc.study.domain.mapping.MemberAgree;
+import umc.study.domain.mapping.MemberPrefer;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -19,4 +21,6 @@ public class FoodCategory extends BaseEntity {
 
     private String name;
 
+    @OneToMany(mappedBy = "food_category", cascade = CascadeType.ALL)
+    private List<MemberPrefer> memberPreferList = new ArrayList<>();
 }
