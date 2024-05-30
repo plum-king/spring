@@ -30,6 +30,8 @@ public class Member extends BaseEntity {
 
     private String address;
 
+    private Integer age;
+
     private String specAddress;
 
     @Enumerated(EnumType.STRING)
